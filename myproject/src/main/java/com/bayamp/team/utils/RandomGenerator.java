@@ -1,5 +1,7 @@
 package com.bayamp.team.utils;
 
+import java.util.Date;
+
 public class RandomGenerator {
 
 	/*	*//**
@@ -59,8 +61,15 @@ public class RandomGenerator {
 
 		return "445-45-5577";
 
+		
 	}
 	
+	public static String getTodaysDate() {
+		
+		Date myDate = new Date();
+		
+		return myDate.toString();
+	}
 	/*
 		*//**
 			 * 

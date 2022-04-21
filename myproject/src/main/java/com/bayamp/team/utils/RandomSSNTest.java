@@ -10,6 +10,8 @@ public class RandomSSNTest {
 	public static void ssnTest( ) {
 		
 		
+		System.out.println(RandomGenerator.getTodaysDate());
+		
 	//	String name = "\"jason\"";
 		
 	//	System.out.println(name);
