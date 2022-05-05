@@ -1,0 +1,9 @@
+<suite name="REST-API-Suite" verbose="1" >
+
+  <test name="GET-CONTACT-TESTS" >
+    <classes>
+       <class name="com.bayamp.team.restapi.get.contact.GetSingleContactTest" />
+    </classes>
+  </test>
+ 
+</suite>

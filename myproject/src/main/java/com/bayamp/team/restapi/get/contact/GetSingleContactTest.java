@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 
 public class GetSingleContactTest {
@@ -16,7 +17,7 @@ public class GetSingleContactTest {
 
 	@BeforeClass
 	public void init() {
-		RestAssured.baseURI = "https://restapi.demoqa.com/utilities/weather/city";
+		RestAssured.baseURI = "https://bayamp-rest-api-contacts.herokuapp.com";
 		httpRequest = RestAssured.given();
 
 	}
@@ -27,7 +28,7 @@ public class GetSingleContactTest {
 		int expectedResponseCode = 200;
 
 		String expectedIDRegex = "\\w{24}";
-		Response getSingleContactResponse = httpRequest.get("/contacts/6088d6aa937a000015f27c17");
+		Response getSingleContactResponse = httpRequest.get("/contacts/626ed3bb48c43e0016e18b6b");
 
 		int responseStatusCode = getSingleContactResponse.getStatusCode();
 
@@ -40,8 +41,12 @@ public class GetSingleContactTest {
 		Assert.assertEquals(responseStatusCode, expectedResponseCode);
 
 		Reporter.log("Actual Response status code is same as expected response code", true);
+		
+		ResponseBody body = getSingleContactResponse.getBody();
+		
+		String bodyAsStr = body.asString();
 
-		JSONObject reponseJSON = new JSONObject(getSingleContactResponse.getBody().toString());
+		JSONObject reponseJSON = new JSONObject(bodyAsStr);
 
 		Reporter.log("Response body :\n" + reponseJSON.toString(2), true);
 
