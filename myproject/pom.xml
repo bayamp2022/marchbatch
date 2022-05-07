@@ -39,7 +39,6 @@
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<version>4.5.0</version>
-
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
@@ -64,7 +63,7 @@
 				<configuration>
 					<!-- Suite testng xml file to consider for test execution -->
 					<suiteXmlFiles>
-						<suiteXmlFile>suites/${suite}.xml</suiteXmlFile>
+						<suiteXmlFile>test-suites/${mysuite}</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

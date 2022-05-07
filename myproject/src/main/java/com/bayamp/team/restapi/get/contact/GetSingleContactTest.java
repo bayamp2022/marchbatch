@@ -63,14 +63,9 @@ public class GetSingleContactTest {
 
 		Assert.assertTrue(id.matches(expectedIDRegex), "Expected regex for ID :" + expectedIDRegex);
 
-		// Reporter.log("Status received => " +
-		// getSingleContactResponse.getStatusLine(),true);
-		// Reporter.log("Response=>" + getSingleContactResponse.prettyPrint(),true);
-
-		// Get the BODY
-
-		// PrintStream p = System.out;
-		// p.println("Hello oWOrld");
+		//Validate Response BODY :
+		
+		
 
 	}
 
