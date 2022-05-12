@@ -43,9 +43,10 @@ public class POSTContactTest {
 		String inputPhoneFromRequestBody = requestBobyAsJSON.get("phone").toString();
 
 		httpRequest.body(requestBodyAsString);
-		httpRequest.header("accept", "application/json");
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.header("accept", "*/*");
 
-		Response postContactResponse = httpRequest.post("/contacts");
+		Response postContactResponse = httpRequest.post("/contacts/");
 
 		int responseStatusCode = postContactResponse.getStatusCode();
 
@@ -67,6 +68,10 @@ public class POSTContactTest {
 
 		Assert.assertEquals(responseMessage, "HTTP/1.1 201 Created");
 
+		Reporter.log("Expected Response message to be : HTTP/1.1 201 Created", true);
+
+		Reporter.log("Actual Response message received : " + responseMessage, true);
+
 		Reporter.log("Actual Response message is same as expected response message", true);
 
 		// Validate response body has ID
@@ -75,7 +80,7 @@ public class POSTContactTest {
 
 		JSONObject actualReponseJSON = new JSONObject(actualResponseBodyAsStr);
 
-		Reporter.log("Response body for create POST HTTP Request:\n" + actualReponseJSON.toString(2), true);
+		Reporter.log("Response body for create POST HTTP Request:\n" + actualReponseJSON.toString(4), true);
 
 		String id = actualReponseJSON.get("id").toString();
 
